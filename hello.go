@@ -5,9 +5,11 @@ import "fmt"
 func main() {
 	fmt.Println("Hello World!")
 
-	datatypes()
+	// datatypes()
 
-	variables()
+	// variables()
 
-	userInput()
+	// userInput()
+
+	loops()
 }
