@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func average(nums []float64) float64 {
 	// panic("Not implemented")
 	total := 0.0
@@ -42,4 +44,12 @@ func factorial(x uint) uint {
 	}
 
 	return x * factorial(x-1)
+}
+
+func first() {
+	fmt.Println("1st")
+}
+
+func second() {
+	fmt.Println("2nd")
 }
