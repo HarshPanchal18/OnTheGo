@@ -11,5 +11,7 @@ func main() {
 
 	// userInput()
 
-	loops()
+	// loops()
+
+	collections()
 }
