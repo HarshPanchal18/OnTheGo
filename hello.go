@@ -57,10 +57,20 @@ func main() {
 	*/
 
 	// recover() stops the panic and returns the value that was passed to the call to panic.
-	defer func() {
+	/*defer func() {
 		str := recover()
 		fmt.Println("Something wrong happened: ", str)
 	}()
 
-	panic("PANIC")
+	panic("PANIC")*/
+
+	x := 5
+	zero(&x)
+	fmt.Println(x)
+
+	// Another way to get a pointer.
+	xPtr := new(int) // new takes a type as an argument, allocates enough memory to fit a value of that type and returns a pointer to it.
+	one(xPtr)
+	fmt.Println(*xPtr)
+
 }
