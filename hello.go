@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+)
 
 func main() {
 	fmt.Println("Hello World!")
@@ -78,12 +81,15 @@ func main() {
 	*/
 
 	// c := new(Circle) // This allocates memory for all the fields, sets each of them to their zero value and returns a pointer.
-	c := Circle { x: 0, y: 0, r: 10 } // Or we can leave off the field names if we know the order they were defined
+	/*c := Circle { x: 0, y: 0, r: 10 } // Or we can leave off the field names if we know the order they were defined
 	fmt.Println(c.x, c.y, c.r)
 
 	fmt.Println(circleArea(c))
 	fmt.Println(c.area())
 
 	rect := Rectangle{ 2, 2, 4, 4}
-	fmt.Println(rect.area())
+	fmt.Println(rect.area())*/
+
+	a := new(Android)
+	a.Talk()
 }
