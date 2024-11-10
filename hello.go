@@ -3,11 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	go f(0)
+	for i := 0; i < 5; i++ {
+		go f(0)
+	}
+
 	var input string
 	fmt.Scanln(&input)
 
-	fmt.Println("Over!")
+	fmt.Println(input)
 
 	/*
 	* Normally when we invoke a function our program will execute all the statements in a function and then return to the next line following the invocation.
