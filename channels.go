@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"time"
-
 )
 
 // Channels provide a way for two goroutines to communicate with one another and synchronize their execution.
@@ -21,6 +20,12 @@ func printer(c chan string) {
 		msg := <- c // receive a message and store it in `msg`
 		fmt.Println(msg)
 		time.Sleep(time.Second * 1)
+	}
+}
+
+func ponger(c chan string) {
+	for i := 0; ; i++ {
+		c <- "pong"
 	}
 }
 
