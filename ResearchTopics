@@ -1,3 +1,39 @@
-Modules
+# Research and Learning
 
-Channel direction
+* Modules
+
+* Left arrow operator in GoLang
+
+> It is used for channel operations.
+
+> `Receive operation`: When you place the <- operator to the left of a channel, it receives a value from the channel. For example: `value := <-ch`
+Here, value will be assigned the next value sent on the ch channel.
+
+> `Send operation`: When you place the <- operator to the right of a channel, it sends a value to the channel.
+For example: `ch <- value`
+Here, the value of value is sent to the ch channel.
+
+> These operations are blocking by default, meaning that a send will block until another goroutine is ready to receive from the channel, and vice versa. This feature is useful for synchronizing goroutines and passing data between them safely.
+
+* Channel direction
+
+How do you specify the direction of a channel type?
+
+* Write your own Sleep function using time.After.
+
+```go
+import (
+    "fmt"
+    "time"
+)
+
+func sleep(duration time.Duration) {
+    <- time.After(duration)
+}
+
+func main() {
+    fmt.Println("Going to sleep...")
+    sleep(3 * time.Second)
+    fmt.Println("Not really sleeped well...")
+}
+```
