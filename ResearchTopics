@@ -37,3 +37,40 @@ func main() {
     fmt.Println("Not really sleeped well...")
 }
 ```
+
+* Go provides tools to check how much of your code is covered by tests. To generate a coverage report, run:
+
+```bash
+go test -coverprofile=coverage.out
+go tool cover -html=coverage.out
+```
+
+This will generate an HTML report showing which lines of code are covered by tests.
+
+* `Example Tests`: Example tests serve as both documentation and executable tests. They start with Example and can include output comments to verify correctness.
+
+```go
+func ExampleAdd() {
+    fmt.Println(Add(1, 2))
+    // Output: 3
+}
+```
+
+// Output: comments are used to indicate the expected output.
+// When you run go test, the framework checks if the actual output matches.
+
+* Benchmark Tests
+Go allows you to write benchmarks to measure the performance of your code.
+Benchmark functions start with Benchmark and have the signature func BenchmarkXxx(b *testing.B).
+
+Example:
+
+```go
+func BenchmarkAdd(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        Add(1, 2)
+    }
+}```
+
+`b.N`: Represents the number of iterations the benchmark will run.
+It is automatically managed by the testing framework.
