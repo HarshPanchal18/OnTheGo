@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -25,4 +26,22 @@ func stringpkg() {
 
 	str := string([]byte{'t', 'e', 's', 't'})
 	fmt.Println(str)
+}
+
+func ospkg() {
+	file, err := os.Open("test.txt")
+	if err != nil {
+		fmt.Println("Error opening test file.")
+		return
+	}
+	fmt.Println(file.Name())
+	defer file.Close()
+
+	// get the file-size.
+	stat, err := file.Stat()
+	if err != nil {
+		fmt.Println("Error opening test file.")
+		return
+	}
+	fmt.Println(stat.Size())
 }
