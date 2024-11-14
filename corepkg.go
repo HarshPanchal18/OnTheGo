@@ -34,8 +34,15 @@ func ospkg() {
 		fmt.Println("Error opening test file.")
 		return
 	}
-	fmt.Println(file.Name())
+	fmt.Println("File name: ", file.Name())
 	defer file.Close()
+
+	fileContent, error := os.ReadFile("test.txt")
+	if error != nil {
+		fmt.Println("Error reading test file")
+		return
+	}
+	fmt.Println("File content: ", string(fileContent))
 
 	// get the file-size.
 	stat, err := file.Stat()
@@ -43,5 +50,9 @@ func ospkg() {
 		fmt.Println("Error opening test file.")
 		return
 	}
-	fmt.Println(stat.Size())
+	fmt.Println("File size in bytes: ", stat.Size())
+
+	// Fetch ENV variables through a key.
+	fmt.Println(strings.Split(os.Getenv("path"),";"))
+
 }
