@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"io/fs"
 	"os"
+	"path/filepath"
 	"strings"
+
 )
 
 func stringpkg() {
@@ -56,13 +57,18 @@ func ospkg() {
 	// Fetch ENV variables through a key.
 	fmt.Println(strings.Split(os.Getenv("path"),";"))
 
-	er := os.WriteFile("test1.txt",[]byte {}, fs.ModeAppend)
-	if er != nil {
+	// er := os.WriteFile("test1.txt",[]byte {}, fs.ModeAppend)
+	file, err = os.Create("test1.txt")
+	if err != nil {
 		fmt.Println("Error creating test file.")
 		return
 	}
+	file.WriteString("Test 1 file content.")
 
 	fmt.Println(getFileContent("test.txt"))
+
+	walkingDirectory()
+
 }
 
 
@@ -84,4 +90,11 @@ func getFileContent(filename string) string {
 
 	content := string(totalBytes)
 	return content
+}
+
+func walkingDirectory() {
+	filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
+		fmt.Println(path)
+		return nil
+	})
 }
