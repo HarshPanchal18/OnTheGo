@@ -70,7 +70,25 @@ func BenchmarkAdd(b *testing.B) {
     for i := 0; i < b.N; i++ {
         Add(1, 2)
     }
-}```
+}
+```
 
 `b.N`: Represents the number of iterations the benchmark will run.
 It is automatically managed by the testing framework.
+
+* Hashes & Cryptography
+
+A hash function takes a set of data and reduces it to a smaller fixed size.
+Hashes are frequently used in programming for everything from looking up data to easily detecting changes.
+Hash functions in Go are broken into two categories: cryptographic and non-cryptographic.
+
+* The non-cryptographic hash functions can be found underneath the hash package and include `adler32`, `crc32`, `crc64` and `fnv`.
+
+* The crc32 hash object implements the Writer interface, so we can write bytes to it like any other Writer.
+Once we've written everything we want we call `Sum32()` to return a uint32. A common use for crc32 is to compare two files.
+If the Sum32 value for both files is the same, it's highly likely (though not 100% certain) that the files are the same.
+If the values are different then the files are definitely not the same.
+
+* Cryptographic hash functions are similar to their non-cryptographic counterparts, but they have the added property of being hard to reverse. Given the cryptographic hash of a set of data, it's extremely difficult to determine what made the hash.
+These hashes are often used in security applications.
+One common cryptographic hash function is known as SHA-1.
