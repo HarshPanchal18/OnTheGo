@@ -3,5 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(string(sha1Hash([]byte("foo"))))
+	go server()
+	go client()
+
+	var input string
+	fmt.Scanln(&input)
 }
