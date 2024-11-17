@@ -107,3 +107,18 @@ The gob package uses the gob encoding to _convert Go data into a compact binary 
 It is a convenient and efficient way to work with structured data in Go.
 
 * `net/rpc`
+
+* `sync/atomic`
+
+* Parsing CLI args:
+
+```go
+func main() {
+    // Define flags
+    maxp := flag.Int("max", 6, "The maximum value") // Arg name, Default value, and Usage.
+    flag.Parse()
+    fmt.Println(rand.Intn(*maxp)) // Generate a number in 0..max
+
+    // Any additional non-flag arguments can be retrieved with flag.Args() which returns a []string.
+}
+```
