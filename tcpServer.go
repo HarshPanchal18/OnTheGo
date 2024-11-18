@@ -6,7 +6,7 @@ import (
 	"net"
 )
 
-func server() {
+func tcpServer() {
 	// listen on port
 	listen, err := net.Listen("tcp", ":9999")
 	if err != nil {
@@ -39,7 +39,7 @@ func handleServerConnection(conn net.Conn) {
 	conn.Close()
 }
 
-func client() {
+func tcpClient() {
 	// Connect to the server
 	conn, err := net.Dial("tcp","127.0.0.1:9999")
 	if err != nil {
