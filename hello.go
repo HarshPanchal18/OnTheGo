@@ -1,17 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+	"math/rand"
+)
 
 func main() {
-	/*http.HandleFunc("/hello", hello) // handle a URL route (/hello) by calling the given function.
+	// Define flags
+	maxp := flag.Int("max", 6, "The maximum value") // Arg name, Default value, and Usage.
+	flag.Parse()
+	fmt.Println(rand.Intn(*maxp)) // Generate a number in 0..max
 
-	http.Handle("/", http.FileServer(http.Dir("."))) // a File server that expose current directory.
-
-	http.ListenAndServe(":9000", nil)*/
-
-	go rpcServer()
-	go rpcClient()
-
-	var input string
-	fmt.Scanln(&input)
+	// Any additional non-flag arguments can be retrieved with flag.Args() which returns a []string.
 }
